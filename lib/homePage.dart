@@ -27,7 +27,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-     appBar: AppBar(
+      appBar: AppBar(
         elevation: 0.0,
         backgroundColor: Colors.white,
         title: Padding(
@@ -84,7 +84,6 @@ class EventListView extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomScrollView(
       slivers: <Widget>[
-        
         SliverList(
           delegate: SliverChildBuilderDelegate(
             (BuildContext context, int index) {
@@ -110,31 +109,34 @@ class EventCard extends StatelessWidget {
       elevation: 2.0,
       margin: EdgeInsets.all(8.0),
       child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              event.title,
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 18.0,
+          padding: const EdgeInsets.all(8.0),
+          child: Row(
+            children: [
+              Icon(Icons.lock, size: 40),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    event.dateTime,
+                    style: TextStyle(fontSize: 14.0, color: Colors.grey),
+                  ),
+                  Text(
+                    event.title,
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18.0,
+                    ),
+                  ),
+                  SizedBox(height: 8.0),
+                  // Text(
+                  //   event.description,
+                  //   style: TextStyle(fontSize: 16.0),
+                  // ),
+                  SizedBox(height: 8.0),
+                ],
               ),
-            ),
-            SizedBox(height: 8.0),
-            Text(
-              event.description,
-              style: TextStyle(fontSize: 16.0),
-            ),
-            SizedBox(height: 8.0),
-            Text(
-              event.dateTime,
-              style: TextStyle(fontSize: 14.0, color: Colors.grey),
-            ),
-          ],
-        ),
-      ),
+            ],
+          )),
     );
   }
 }
-
